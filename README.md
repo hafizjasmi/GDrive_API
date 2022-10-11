@@ -18,3 +18,7 @@ Notes:
 - This script only downloads binary files, meaning picture, videos, etc etc but not google docs or spreadsheets.
 
 
+
+## Notes
+Put the credentials.json into the same folder as the script. Then you will need to whitelist port 8080 and hostname is localhost.
+run the script by using python command invoke, then it will run and insert the folder id.
