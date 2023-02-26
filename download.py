@@ -12,11 +12,15 @@ from google.auth.transport.requests import Request
 # ID can be obtained from the URL of the folder
 FOLDER_ID = input('Please Insert Folder ID here : ')
 
+
 # If modifying these scopes, delete the file token.pickle.
 # SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 start_time = dt.datetime.now()
 proper_start_time = dt.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+DOWNLOAD_FOLDER = input("Please insert your path : ")
+
 def main():
     """Download all files in the specified folder in Google Drive."""
     creds = None
@@ -67,7 +71,9 @@ def main():
                 file_id = item['id']
                 request = service.files().get_media(fileId=file_id)
 
-                with open(item['name'], 'wb') as fh:
+                folder_path = DOWNLOAD_FOLDER
+                with open(folder_path + item['name'], 'wb') as fh:
+                
                 
                     downloader = MediaIoBaseDownload(fh, request)
                     done = False
